@@ -1,0 +1,32 @@
+page {
+    background-color: #fff;
+    position: relative;
+}
+
+.self-qrcode {
+    padding: 20vh 0;
+}
+
+.self-qrcode > view {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.scan-tips {
+    margin-top: 2vh !important;
+    text-align: center;
+    color: var(--gray-color);
+}
+
+.operate-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info {
+    padding-left: 0 !important;
+}

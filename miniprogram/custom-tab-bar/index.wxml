@@ -1,0 +1,8 @@
+<view class="wrapper">
+  <t-tab-bar value="{{ curPath }}" bindchange="onChange" split="{{ false }}">
+    <t-tab-bar-item wx:for="{{ tabBarList }}" wx:key="label" value="{{ item.pagePath }}" icon="{{ item.icon }}">
+      {{item.label}}
+    </t-tab-bar-item>
+  </t-tab-bar>
+</view>
+

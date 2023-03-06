@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "custom-tab-bar/index",
+    "pages/message/index",
+    "pages/contacts/index",
+    "pages/profile/index",
+    "pages/personal-message/index",
+    "pages/update-username/index",
+    "pages/self-qrcode/index",
+    "pages/setting/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "text": "会话",
+        "pagePath": "pages/message/index"
+      },
+      {
+        "text": "通讯录",
+        "pagePath": "pages/contacts/index"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/profile/index"
+      }
+    ]
+  },
+  "window":{
+    "navigationBarBackgroundColor": "#ededed",
+    "navigationBarTextStyle":"black"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-message": "tdesign-miniprogram/message/message",
+    "t-link": "tdesign-miniprogram/link/link",
+    "t-avatar": "tdesign-miniprogram/avatar/avatar"
+  }
+}

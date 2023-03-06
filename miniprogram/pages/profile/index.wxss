@@ -1,0 +1,19 @@
+.profile-head {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.profile-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-weight: bolder;
+}
+
+.open-id-row {
+    color: #9a9a9a;
+}

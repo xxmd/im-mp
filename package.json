@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "dependencies": {
+    "tdesign-miniprogram": "^1.0.1",
+    "weapp-qrcode": "^1.0.0"
+  }
+}

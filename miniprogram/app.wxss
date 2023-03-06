@@ -1,0 +1,18 @@
+@import "assets/css/iconfont.wxss";
+@import "assets/css/global.wxss";
+
+page {
+    min-height: 100vh;
+    background-color: #ededed;
+    --card-margin: 1rem;
+    --gray-color: #b3b3b3;
+    --danger-colr: #dc3545;
+}
+
+.container {
+    background-color: #fff;
+}
+
+.cell-group {
+    margin-top: var(--card-margin);
+}

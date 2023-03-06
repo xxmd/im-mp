@@ -1,0 +1,26 @@
+<view class="self-qrcode">
+  <view>
+    <t-cell
+      t-class="user-info"
+      title="{{ userInfo.nickName }}"
+      description="{{ 'OpenId: ' + openId }}"
+      align="top"
+      bordered="{{false}}"
+    >
+      <view class="avatar" slot="left-icon">
+        <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />
+      </view>
+    </t-cell>
+  </view>
+
+  <view>
+    <canvas style="width:{{ qrCodeSize }}px; height:{{ qrCodeSize }}px;" canvas-id="myQrcode"></canvas>
+  </view>
+
+  <view class="scan-tips">扫描二维码，加我为好友</view>
+
+  <view class="operate-links">
+    <t-link theme="primary" content="扫一扫" prefixIcon="scan" />
+    <t-link theme="primary" content="保存图片" hover prefixIcon="save" />
+  </view>
+</view>

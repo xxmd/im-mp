@@ -1,0 +1,12 @@
+<view>
+  <view>
+    <view class="cell-group">
+      <t-cell title="反馈" arrow />
+      <t-cell title="关于我们" arrow note="{{ '版本: ' + version }}" />
+    </view>
+
+    <view class="cell-group">
+      <t-cell t-class-title="logout" title="退出登录" />
+    </view>
+  </view>
+</view>

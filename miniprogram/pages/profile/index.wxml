@@ -1,0 +1,24 @@
+<view>
+  <t-cell
+    title="{{ userInfo.nickName }}"
+    description="{{ 'openId:' + openId }}"
+    align="top"
+    bordered="{{false}}"
+    url="/pages/personal-message/index"
+  >
+    <view class="avatar" slot="left-icon">
+      <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />
+    </view>
+  </t-cell>
+
+  <view>
+    <view class="cell-group">
+      <t-cell title="朋友圈" hover arrow leftIcon="logo-wecom" />
+      <t-cell title="表情" hover arrow leftIcon="image" />
+    </view>
+
+    <view class="cell-group">
+      <t-cell title="设置" hover arrow leftIcon="setting" url="/pages/setting/index" />
+    </view>
+  </view>
+</view>

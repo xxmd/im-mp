@@ -1,0 +1,1 @@
+"D:\ProgramFiles\微信web开发者工具\cli.bat" cloud functions deploy --e im-3gelvp9c7681a2f7 --n quickstartFunctions --r --project "D:\WorkStation\WeChatProjects\im-mp" --report_first --report

@@ -1,0 +1,41 @@
+<view>
+  <view class="cell-group">
+    <button class="choose-avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <t-cell title="头像" hover arrow>
+        <image class="avatar" slot="note" src="{{ userInfo.avatarUrl || '/assets/img/default-avatar.png' }}" />
+      </t-cell>
+    </button>
+    <t-cell
+        title="昵称"
+        hover
+        arrow
+        note="{{ userInfo.nickName }}"
+        bind:click="modifyNickName"
+    />
+    <t-cell title="二维码" hover arrow url="/pages/self-qrcode/index">
+      <t-icon slot="note" name="qrcode" size="48rpx" />
+    </t-cell>
+    <t-cell title="更多" hover arrow bind:click="getMore" />
+  </view>
+
+  <t-dialog
+    visible="{{ dialogVisible }}"
+    title="修改昵称"
+    confirm-btn="确认"
+    cancel-btn="取消"
+    bind:confirm="onConfirm"
+    bind:cancel="closeDialog"
+  >
+    <t-input
+      type="nickname"
+      clearable
+      value="{{ userInfo.nickName || '' }}"
+      slot="content"
+      placeholder="请输入昵称"
+      placeholder-class="placeholder"
+      bind:blur="onBlur"
+    />
+  </t-dialog>
+
+  <t-message id="t-message" />
+</view>
