@@ -1,0 +1,6 @@
+.input-area {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+}

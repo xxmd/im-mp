@@ -5,9 +5,10 @@
     "pages/contacts/index",
     "pages/profile/index",
     "pages/personal-message/index",
-    "pages/update-username/index",
     "pages/self-qrcode/index",
-    "pages/setting/index"
+    "pages/setting/index",
+    "pages/user-card/index",
+    "pages/single-chat/index"
   ],
   "tabBar": {
     "custom": true,
@@ -28,6 +29,7 @@
   },
   "window":{
     "navigationBarBackgroundColor": "#ededed",
+    "backgroundColor": "#ededed",
     "navigationBarTextStyle":"black"
   },
   "lazyCodeLoading": "requiredComponents",
@@ -36,10 +38,13 @@
   "usingComponents": {
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-input": "tdesign-miniprogram/input/input",
     "t-message": "tdesign-miniprogram/message/message",
     "t-link": "tdesign-miniprogram/link/link",
-    "t-avatar": "tdesign-miniprogram/avatar/avatar"
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-divider": "tdesign-miniprogram/divider/divider"
   }
 }

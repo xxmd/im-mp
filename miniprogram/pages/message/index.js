@@ -1,11 +1,18 @@
 // pages/message/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    sessionList: []
+  },
+  toChatPage(e) {
+    const item = e.target.dataset.item
+    wx.navigateTo({
+      url: `/pages/single-chat/index?friendOpenId=${ item.friendOpenId }&friendInfo=${ JSON.stringify(item.friendInfo) }`
+    })
+  },
+  getSessionList() {
+    this.setData({
+      sessionList: wx.getStorageSync('sessionList')
+    })
   },
   onShow() {
     if (typeof this.getTabBar === 'function') {
@@ -13,5 +20,6 @@ Page({
         curPath: '/' + this.route
       })
     }
+    this.getSessionList()
   }
 })

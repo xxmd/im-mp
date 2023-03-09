@@ -1,21 +1,44 @@
 import drawQrcode from '../../vendor/weapp.qrcode.esm.js'
-Page({
+import Message from 'tdesign-miniprogram/message/index';
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     qrCodeSize: 200,
     userInfo: {},
-    openId: ''
+    openId: '',
+    canvasId: 'myQrcode'
+  },
+  scanCode() {
+    wx.scanCode({
+      success (res) {
+        // 执行添加好友功能
+        console.log(res)
+      }
+    })
+  },
+  saveCode() {
+    wx.canvasToTempFilePath({
+      canvasId: this.data.canvasId,
+      success(res) {
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success() {
+            // 这里不用message是因为ios弹不出来
+            wx.showToast({
+              icon: 'success',
+              title: '二维码保存成功'
+            })
+          }
+        })
+      },
+    })
   },
   geneCode() {
     drawQrcode({
       width: this.data.qrCodeSize,
       height: this.data.qrCodeSize,
-      canvasId: 'myQrcode',
-      // ctx: wx.createCanvasContext('myQrcode'),
-      text: 'https://github.com/yingye'
+      canvasId: this.data.canvasId,
+      text: this.data.openId
     })
   },
   /**

@@ -1,2 +1,48 @@
-<!--pages/contacts/index.wxml-->
-<text>pages/contacts/index.wxml</text>
+<view>
+  <t-cell-group>
+    <t-cell title="新增好友" leftIcon="user-add" bind:click="addFriend" />
+  </t-cell-group>
+
+  <t-indexes index-list="{{ indexList }}">
+    <block wx:for="{{ sortedList }}" wx:key="index">
+      <t-indexes-anchor index="{{ item.index }}" />
+      <t-cell-group>
+        <t-cell
+          wx:for="{{item.group}}"
+          wx:key="openId"
+          wx:for-item="userInfo"
+          title="{{ userInfo.nickName }}"
+          align="middle"
+          bordered="{{false}}"
+          data-open-id="{{ userInfo.openId }}"
+          bind:click="showUserCard"
+        >
+          <view class="avatar" slot="left-icon">
+            <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />
+          </view>
+        </t-cell>
+      </t-cell-group>
+    </block>
+  </t-indexes>
+
+
+  <!-- 新增好友dialog -->
+  <t-dialog
+    visible="{{ dialogVisible }}"
+    title="新增好友"
+    confirm-btn="确认"
+    cancel-btn="取消"
+    bind:confirm="onConfirm"
+    bind:cancel="closeDialog"
+  >
+    <t-input
+      clearable
+      value="{{ friendOpenId || '' }}"
+      slot="content"
+      placeholder="请输入好友 OpenId"
+      bind:blur="onBlur"
+    />
+  </t-dialog>
+
+  <t-message id="t-message" />
+</view>

@@ -1,6 +1,9 @@
 {
   "version": "1.0.0",
   "dependencies": {
+    "crypto-js": "^4.1.1",
+    "open-im-sdk": "^2.3.0-beta.2",
+    "pinyin-pro": "^3.13.1",
     "tdesign-miniprogram": "^1.0.1",
     "weapp-qrcode": "^1.0.0"
   }

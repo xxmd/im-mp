@@ -6,7 +6,7 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/profile/index",
+          "name": "profile",
           "pathName": "pages/profile/index",
           "query": "",
           "launchMode": "default",
@@ -22,6 +22,27 @@
         {
           "name": "self-qrcode",
           "pathName": "pages/self-qrcode/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "contacts",
+          "pathName": "pages/contacts/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "user-card",
+          "pathName": "pages/user-card/index",
+          "query": "friendOpenId=o5ezt5d3sgz",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "message",
+          "pathName": "pages/message/index",
           "query": "",
           "launchMode": "default",
           "scene": null

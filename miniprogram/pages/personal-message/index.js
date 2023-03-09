@@ -1,11 +1,10 @@
 import Message from 'tdesign-miniprogram/message/index';
+import {updateUserInfo, upload} from "../../utils/im-api";
 
 Page({
   data: {
     userInfo: {},
     dialogVisible: false
-  },
-  geneCode() {
   },
   getMore() {
     Message.warning({
@@ -20,7 +19,6 @@ Page({
   },
   onConfirm() {
     this.closeDialog()
-    console.log(this.data.inputValue)
     if (this.data.inputValue) {
       this.data.userInfo.nickName = this.data.inputValue
       this.updateUserInfo(this.data.userInfo)
@@ -30,7 +28,9 @@ Page({
     this.setData({
       userInfo: newUserInfo
     })
-    wx.setStorageSync('userInfo', newUserInfo)
+    updateUserInfo({ newUserInfo }, () => {
+      wx.setStorageSync('userInfo', newUserInfo)
+    })
   },
   closeDialog() {
     this.setData({
@@ -42,15 +42,26 @@ Page({
       dialogVisible: true
     })
   },
-  onChooseAvatar(e) {
-    this.data.userInfo.avatarUrl = e.detail.avatarUrl
-    this.updateUserInfo(this.data.userInfo)
+  uploadAvatar(url) {
+    upload({
+      content: wx.getFileSystemManager().readFileSync(url,'base64')
+    }, (res) => {
+      console.log(res)
+      this.data.userInfo.avatarUrl = res.data.url
+      this.updateUserInfo(this.data.userInfo)
+    })
+  },
+  chooseAvatar() {
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      success: (res) => {
+        this.uploadAvatar(res.tempFiles[0].tempFilePath)
+      }
+    })
   },
   onLoad() {
     const userInfo = wx.getStorageSync('userInfo') || {}
-    if (!userInfo.nickName) {
-      userInfo.nickName = '默认名称'
-    }
     this.setData({
       userInfo
     })

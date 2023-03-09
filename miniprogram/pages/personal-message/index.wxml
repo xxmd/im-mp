@@ -1,10 +1,8 @@
 <view>
   <view class="cell-group">
-    <button class="choose-avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-      <t-cell title="头像" hover arrow>
-        <image class="avatar" slot="note" src="{{ userInfo.avatarUrl || '/assets/img/default-avatar.png' }}" />
-      </t-cell>
-    </button>
+    <t-cell title="头像" hover arrow bind:click="chooseAvatar">
+      <image class="avatar" slot="note" src="{{ userInfo.avatarUrl }}" />
+    </t-cell>
     <t-cell
         title="昵称"
         hover

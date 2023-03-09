@@ -1,0 +1,14 @@
+<view>
+  <view class="input-area">
+    <t-input
+        bind:enter="sendMsg"
+        bind:change="onChange"
+        placeholder="请输入文字"
+        borderless="{{true}}"
+        suffixIcon="{{ { name: 'error-circle-filled', ariaLabel: '提示' } }}"
+    />
+    <t-button disabled="{{ btnDisabled }}" theme="primary" size="large">发送</t-button>
+  </view>
+
+  <t-message id="t-message" />
+</view>

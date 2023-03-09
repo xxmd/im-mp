@@ -16,3 +16,9 @@ page {
 .cell-group {
     margin-top: var(--card-margin);
 }
+
+.block-btn {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
