@@ -25,6 +25,7 @@
     bind:cancel="closeDialog"
   >
     <t-input
+      focus="{{ dialogVisible }}"
       type="nickname"
       clearable
       value="{{ userInfo.nickName || '' }}"

@@ -1,4 +1,4 @@
 .idea
 /node_modules/
 /cloudfunctions/
-/miniprogram/miniprogram_npm
+/miniprogram/miniprogram_npm/

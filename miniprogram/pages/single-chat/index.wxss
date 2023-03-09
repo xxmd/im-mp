@@ -1,6 +1,9 @@
-.input-area {
-    position: sticky;
-    bottom: 0;
-    background-color: #fff;
-    display: flex;
+.single-input {
+    min-height: 100vh;
+}
+
+.msgs {
+    height: 87vh;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }

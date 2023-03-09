@@ -1,11 +1,13 @@
 @import "assets/css/iconfont.wxss";
-@import "assets/css/global.wxss";
 
 page {
     min-height: 100vh;
     background-color: #ededed;
+    --brand-color: #95ec69;
     --card-margin: 1rem;
     --gray-color: #b3b3b3;
+    --back-color: #ececec;
+    --success-colr: #07c160;
     --danger-colr: #dc3545;
 }
 
@@ -21,4 +23,9 @@ page {
     border-radius: 0 !important;
     margin: 0 !important;
     width: 100% !important;
+}
+
+.t-tab-bar-item__text--small {
+    margin-top: 10px;
+    font-size: 13px !important;
 }

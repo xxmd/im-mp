@@ -1,0 +1,70 @@
+.footer-input {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    background-color: #f6f6f6;
+}
+
+.input-area {
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    transition: margin-bottom 0.1s;
+}
+
+.input {
+    width: 70%;
+    background-color: #fff;
+    padding: 8px;
+}
+
+.record-active {
+    color: var(--success-colr);
+}
+
+
+.hidden-area {
+    background-color: var(--back-color);
+}
+
+.emoji-list, .others {
+    display: flex;
+    flex-wrap: wrap;
+    height: 28vh;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.emoji-item {
+    width: 20%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.others-item {
+    width: 25%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    flex-direction: column;
+    gap: 10px;
+    color: black;
+}
+
+.icon-box {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 30px !important;
+}
+
+.t-icon-base {
+    font-size: 30px !important;
+}

@@ -42,11 +42,8 @@ Page({
       dialogVisible: true
     })
   },
-  uploadAvatar(url) {
-    upload({
-      content: wx.getFileSystemManager().readFileSync(url,'base64')
-    }, (res) => {
-      console.log(res)
+  uploadAvatar(tempFilePath) {
+    upload(tempFilePath, (res) => {
       this.data.userInfo.avatarUrl = res.data.url
       this.updateUserInfo(this.data.userInfo)
     })

@@ -36,6 +36,7 @@
     bind:cancel="closeDialog"
   >
     <t-input
+      focus="{{ dialogVisible }}"
       clearable
       value="{{ friendOpenId || '' }}"
       slot="content"

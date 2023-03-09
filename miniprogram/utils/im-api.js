@@ -15,11 +15,17 @@ export function register(success) {
   })
 }
 
-export function sendMsg(success) {
+export function sendMsg(data, success) {
   request({
     url: 'https://api.netease.im/nimserver/msg/sendMsg.action',
     data: {
-    }
+      from: wx.getStorageSync('openId'),
+      ope: 0,
+      to: data.friendOpenId,
+      type: data.type,
+      body: JSON.stringify(data.body)
+    },
+    success
   })
 }
 
@@ -78,10 +84,12 @@ export function addFriend(data, success) {
   })
 }
 
-export function upload(data, success) {
+export function upload(tempFilePath, success) {
   request({
     url: 'https://api.netease.im/nimserver/msg/upload.action',
-    data,
+    data: {
+      content: wx.getFileSystemManager().readFileSync(tempFilePath,'base64')
+    },
     success
   })
 }

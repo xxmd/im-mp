@@ -39,14 +39,16 @@ export function request(options) {
     },
     success(res) {
       wx.hideLoading()
-      options.success(res)
+      if (typeof options.success === 'function') {
+        options.success(res)
+      }
     },
     fail(error) {
+      console.log(error)
       wx.showToast({
         icon: 'error',
         title: 'Request fail'
       })
-      console.log(error)
     },
     complete() {
       wx.hideLoading()

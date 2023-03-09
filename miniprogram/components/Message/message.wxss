@@ -1,0 +1,28 @@
+.self-msg, friend-msg {
+}
+
+.self-msg {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    gap: 10px;
+}
+
+.image-msg {
+}
+
+.t-avatar--medium {
+    width: 20px;
+    height: 20px;
+}
+
+.msg-content {
+    border-radius: 3px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.self-msg > .msg-content {
+    background-color: var(--brand-color);
+}

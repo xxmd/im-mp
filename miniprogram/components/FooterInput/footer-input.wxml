@@ -1,0 +1,45 @@
+<view class="footer-input" style="margin-bottom: {{ inputMarginBottom + 'px' }}" bindtap="onPageTap">
+  <view class="input-area">
+    <t-icon
+            name="speaker"
+            prefix="icon"
+            bind:touchstart="onTouchStart"
+            bind:touchend="onTouchEnd"
+            class="{{ recording ? 'record-active' : '' }}"
+    />
+    <input
+            value="{{ inputValue }}"
+            class="input"
+            adjust-position="{{ false }}"
+            bind:focus="onFocus"
+            bind:blur="onBlur"
+            clearable="{{ true }}"
+            t-class-input="t-input"
+            confirm-type="send"
+            bind:confirm="onConfirm"
+            bind:input="onInput"
+    />
+    <t-icon name="expression" prefix="icon" bind:click="switchShow" data-tab-name="emojiList" />
+    <t-icon name="circle-add" prefix="icon"  bind:click="switchShow" data-tab-name="others" />
+  </view>
+
+  <view wx:if="{{ showHiddenArea }}" class="hidden-area">
+    <scroll-view 	enable-flex scroll-y wx:if="{{ visibleTab === 'emojiList' }}" class="emoji-list">
+      <text class="emoji-item" wx:for="{{ emojiList }}" bindtap="addEmoji" data-emoji="{{ item }}">{{ item }}</text>
+    </scroll-view>
+    <view wx:if="{{ visibleTab === 'others' }}" class="others">
+      <view class="others-item" bindtap="choosePicture">
+        <view class="icon-box">
+          <t-icon name="picture" prefix="icon" external-classes="external-classes" />
+        </view>
+        <text>照片</text>
+      </view>
+      <view class="others-item" bindtap="sendPosition">
+        <view class="icon-box">
+          <t-icon name="position" prefix="icon" external-classes="external-classes" />
+        </view>
+        <text>位置</text>
+      </view>
+    </view>
+  </view>
+</view>

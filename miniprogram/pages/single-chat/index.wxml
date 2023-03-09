@@ -1,14 +1,7 @@
-<view>
-  <view class="input-area">
-    <t-input
-        bind:enter="sendMsg"
-        bind:change="onChange"
-        placeholder="请输入文字"
-        borderless="{{true}}"
-        suffixIcon="{{ { name: 'error-circle-filled', ariaLabel: '提示' } }}"
-    />
-    <t-button disabled="{{ btnDisabled }}" theme="primary" size="large">发送</t-button>
-  </view>
+<view class="single-input" bindtap="pageTap">
+  <scroll-view show-scrollbar="{{ false }}" scroll-y class="msgs" scroll-into-view="{{ 	viewIdPrefix + '-' + lastViewId }}">
+    <message id="{{ viewIdPrefix + '-' + item.msgid }}" wx:for="{{ chatHistory }}" wx:key="msgid" message="{{ item }}" friendInfo="{{ friendInfo }}"></message>
+  </scroll-view>
 
-  <t-message id="t-message" />
+  <footer-input id="footer-input" bind:inputEnd="inputEnd"></footer-input>
 </view>

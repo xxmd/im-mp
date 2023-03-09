@@ -2,9 +2,10 @@
   <t-cell
     title="{{ userInfo.nickName }}"
     description="{{ 'openId:' + openId }}"
-    align="top"
+    align="center"
     bordered="{{false}}"
     url="/pages/personal-message/index"
+    arrow
   >
     <view class="avatar" slot="left-icon">
       <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />

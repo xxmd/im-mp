@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
+    "footer-input": "../../components/FooterInput/footer-input",
+    "message": "../../components/Message/message"
+  }
 }

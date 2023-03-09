@@ -1,7 +1,18 @@
 import { register, getUserInfo } from "./utils/im-api";
 
 App({
+  globalData: {
+
+  },
+  getSafeAreaHeight() {
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.safeAreaHeight = res.screenHeight - res.safeArea.bottom;
+      }
+    })
+  },
   init() {
+    this.getSafeAreaHeight()
     wx.cloud.init({
       env: 'im-3gelvp9c7681a2f7',
     })

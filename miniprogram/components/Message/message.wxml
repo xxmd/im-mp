@@ -1,0 +1,38 @@
+<view>
+  <!-- 自己发的内容 -->
+ <view class="self-msg" wx:if="{{ message.from === selfOpenId }}">
+   <!-- 文字消息 -->
+   <view class="msg-content" wx:if="{{ message.type === MSG_TYPE.TEXT_MSG }}">{{ message.body.msg }}</view>
+
+   <!-- 图片消息 -->
+   <view class="image-msg" wx:if="{{ message.type === MSG_TYPE.PICTURE_MSG }}" bindtap="previewImage" data-url="{{ message.body.url }}" >
+     <t-image src="{{ message.body.url }}" mode="aspectFill" width="72" height="72" />
+   </view>
+
+   <!-- 语言消息 -->
+   <view class="msg-content"  wx:if="{{ message.type === MSG_TYPE.VOICE_MSG }}" bindtap="playVoice" data-url="{{ message.body.url }}">
+     <text>{{ (message.body.dur - message.body.dur % 1000) / 1000 }}</text>
+     <t-icon name="signal-left" prefix="icon" />
+   </view>
+   <t-avatar size="small"  shape="round" image="{{ selfInfo.avatarUrl }}" />
+ </view>
+  <!-- 别人发的内容 -->
+  <view class="friend-msg"  wx:else>
+    <t-avatar shape="round" image="{{  }}" />
+    <!-- 文字消息 -->
+    <view wx:if="{{ message.type ===MSG_TYPE.TEXT_MSG }}">{{ message.body.msg }}</view>
+
+    <!-- 图片消息 -->
+    <view wx:if="{{ message.type === MSG_TYPE.PICTURE_MSG }}" bindtap="previewImage" data-url="{{ message.body.url }}" >
+      <t-image src="{{ message.body.url }}" mode="aspectFill" width="72" height="72" />
+    </view>
+
+    <!-- 语言消息 -->
+    <view wx:if="{{ message.type === MSG_TYPE.VOICE_MSG }}">
+      <t-icon name="signal-right" prefix="icon" />
+      <text>{{ message.body.dur }}</text>
+    </view>
+  </view>
+
+
+</view>
