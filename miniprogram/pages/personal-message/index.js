@@ -1,18 +1,9 @@
-import Message from 'tdesign-miniprogram/message/index';
-import {updateUserInfo, upload} from "../../utils/im-api";
+import {updateUserInfo, upload} from "../../utils/api";
 
 Page({
   data: {
     userInfo: {},
     dialogVisible: false
-  },
-  getMore() {
-    Message.warning({
-      context: this,
-      offset: ['20rpx', '32rpx'],
-      duration: 5000,
-      content: '更多功能暂未开放'
-    });
   },
   onBlur(e) {
     this.data.inputValue = e.detail.value.trim()

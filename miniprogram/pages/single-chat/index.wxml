@@ -1,7 +1,11 @@
 <view class="single-input" bindtap="pageTap">
   <scroll-view show-scrollbar="{{ false }}" scroll-y class="msgs" scroll-into-view="{{ 	viewIdPrefix + '-' + lastViewId }}">
-    <message id="{{ viewIdPrefix + '-' + item.msgid }}" wx:for="{{ chatHistory }}" wx:key="msgid" message="{{ item }}" friendInfo="{{ friendInfo }}"></message>
+    <message
+      id="{{ viewIdPrefix + '-' + item.msgid }}"
+      wx:for="{{ chatRecord }}" wx:key="msgid"
+      message="{{ item }}"
+      friendInfo="{{ friendInfo }}"
+    />
   </scroll-view>
-
   <footer-input id="footer-input" bind:inputEnd="inputEnd"></footer-input>
 </view>

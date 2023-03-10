@@ -24,7 +24,7 @@ function geneHeadParams() {
 
 export function request(options) {
   wx.showLoading({
-    title: '网络请求中...'
+    title: options.loadingTips || '网络请求中...'
   })
   wx.request({
     url: options.url,
@@ -49,6 +49,7 @@ export function request(options) {
         icon: 'error',
         title: 'Request fail'
       })
+      options.fail(error)
     },
     complete() {
       wx.hideLoading()

@@ -1,0 +1,9 @@
+<view class="position">
+  <map longitude="{{ position.lng }}" latitude="{{ position.lat }}" markers="{{ markers }}"></map>
+  <view class="bottom-area">
+    <view class="title">{{ position.title }}</view>
+    <view class="operators">
+      <icon-text wx:for="{{ operators }}" wx:key="icon" iconText="{{ item }}"></icon-text>
+    </view>
+  </view>
+</view>

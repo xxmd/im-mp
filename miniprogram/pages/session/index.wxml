@@ -4,7 +4,7 @@
     title="{{ item.friendInfo.nickName }}"
     align="top"
     bordered="{{false}}"
-    description="一段很长很长的内容文字"
+    description="{{ item.desc }}"
     data-item="{{ item }}"
     bind:click="toChatPage"
 >

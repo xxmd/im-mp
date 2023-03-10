@@ -20,8 +20,8 @@
   <view class="scan-tips">扫描二维码，加我为好友</view>
 
   <view class="operate-links">
-    <t-link theme="primary" content="扫一扫" prefixIcon="scan" bind:tap="scanCode" />
-    <t-link theme="primary" content="保存图片" hover prefixIcon="save" bind:tap="saveCode" />
+    <t-link size="large" theme="primary" content="扫一扫" prefixIcon="scan" bind:tap="scanCode" />
+    <t-link  size="large" theme="primary" content="保存图片" hover prefixIcon="save" bind:tap="saveCode" />
   </view>
 
   <t-message id="t-message" />

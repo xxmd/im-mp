@@ -1,23 +1,23 @@
 <view class="footer-input" style="margin-bottom: {{ inputMarginBottom + 'px' }}" bindtap="onPageTap">
   <view class="input-area">
     <t-icon
-            name="speaker"
-            prefix="icon"
-            bind:touchstart="onTouchStart"
-            bind:touchend="onTouchEnd"
-            class="{{ recording ? 'record-active' : '' }}"
+      name="speaker"
+      prefix="icon"
+      bind:touchstart="onTouchStart"
+      bind:touchend="onTouchEnd"
+      class="{{ recording ? 'record-active' : '' }}"
     />
     <input
-            value="{{ inputValue }}"
-            class="input"
-            adjust-position="{{ false }}"
-            bind:focus="onFocus"
-            bind:blur="onBlur"
-            clearable="{{ true }}"
-            t-class-input="t-input"
-            confirm-type="send"
-            bind:confirm="onConfirm"
-            bind:input="onInput"
+      value="{{ inputValue }}"
+      class="input"
+      adjust-position="{{ false }}"
+      bind:focus="onFocus"
+      bind:blur="onBlur"
+      clearable="{{ true }}"
+      t-class-input="t-input"
+      confirm-type="send"
+      bind:confirm="onConfirm"
+      bind:input="onInput"
     />
     <t-icon name="expression" prefix="icon" bind:click="switchShow" data-tab-name="emojiList" />
     <t-icon name="circle-add" prefix="icon"  bind:click="switchShow" data-tab-name="others" />
@@ -34,7 +34,7 @@
         </view>
         <text>照片</text>
       </view>
-      <view class="others-item" bindtap="sendPosition">
+      <view class="others-item" bindtap="choosePosition">
         <view class="icon-box">
           <t-icon name="position" prefix="icon" external-classes="external-classes" />
         </view>

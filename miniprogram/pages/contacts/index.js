@@ -1,4 +1,4 @@
-import {getFriendList, getUserInfo} from "../../utils/im-api";
+import {getFriendList, getUserInfo} from "../../utils/api";
 import Message from 'tdesign-miniprogram/message/index';
 import { pinyin } from 'pinyin-pro';
 import {groupBy} from "../../utils/arr-util";
@@ -50,8 +50,10 @@ Page({
       dialogVisible: true
     })
   },
-  onShow() {
+  onLoad() {
     this.getFriendList()
+  },
+  onShow() {
     if (typeof this.getTabBar === 'function') {
       this.getTabBar().setData({
         curPath: '/' + this.route

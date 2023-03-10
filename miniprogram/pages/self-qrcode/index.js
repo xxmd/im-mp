@@ -3,7 +3,7 @@ import Message from 'tdesign-miniprogram/message/index';
 
 Page({
   data: {
-    qrCodeSize: 200,
+    qrCodeSize: 250,
     userInfo: {},
     openId: '',
     canvasId: 'myQrcode'

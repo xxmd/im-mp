@@ -12,14 +12,25 @@
     </view>
   </t-cell>
 
-  <view>
-<!--    <view class="cell-group">-->
-<!--      <t-cell title="朋友圈" hover arrow leftIcon="logo-wecom" />-->
-<!--      <t-cell title="表情" hover arrow leftIcon="image" />-->
-<!--    </view>-->
-
-    <view class="cell-group">
-      <t-cell title="设置" hover arrow leftIcon="setting" url="/pages/setting/index" />
-    </view>
+  <view class="cell-group">
+    <t-cell title="切换账号" arrow bind:click="switchAccount"/>
   </view>
+
+  <t-dialog
+          visible="{{ dialogVisible }}"
+          title="切换账号"
+          confirm-btn="确认"
+          cancel-btn="取消"
+          bind:confirm="onConfirm"
+          bind:cancel="closeDialog"
+  >
+    <t-input
+            focus="{{ dialogVisible }}"
+            clearable
+            slot="content"
+            placeholder="请输入OpenId"
+            placeholder-class="placeholder"
+            bind:blur="onBlur"
+    />
+  </t-dialog>
 </view>

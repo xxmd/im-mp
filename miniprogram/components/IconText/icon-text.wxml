@@ -1,0 +1,4 @@
+<view class="icon-text">
+  <t-icon class="icon" style="color: {{ iconText.color || '#03c160' }}" name="{{ iconText.icon }}" prefix="icon" />
+  <view class="text">{{ iconText.text }}</view>
+</view>

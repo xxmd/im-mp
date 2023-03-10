@@ -1,0 +1,46 @@
+.position {
+    height: 100vh;
+}
+
+.bottom-area {
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15vh;
+    background-color: white;
+    padding: 20px 10px 0;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    flex: 1;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.grid {
+    gap: 30px;
+}
+
+map {
+    width: 100vw;
+    height: 100vh;
+}
+
+.operators {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.t-grid-item__image--icon {
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    color: #03c160;
+}

@@ -1,4 +1,4 @@
-import {addFriend, getSingleChatHistory, getUserInfo, isFriend} from "../../utils/im-api";
+import {addFriend, getSingleChatHistory, getUserInfo, isFriend} from "../../utils/api";
 import Message from 'tdesign-miniprogram/message/index';
 
 Page({

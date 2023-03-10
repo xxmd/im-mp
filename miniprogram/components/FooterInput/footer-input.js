@@ -3,6 +3,7 @@ import {InputType} from "../../utils/types";
 const app = getApp()
 const recordDurationTrigger = 1000
 
+// 聊天界面底部输入框，支持文字，表情，语言和图片
 Component({
   data: {
     inputValue: '',
@@ -14,6 +15,10 @@ Component({
     visibleTab: ''
   },
   methods: {
+    /**
+     * 控制底部隐藏区域显示与否
+     * @param e
+     */
     switchShow(e) {
       const tabName = e.target.dataset.tabName
       if (tabName === 'emojiList') {
@@ -37,20 +42,24 @@ Component({
      */
     initRecord() {
       this.record = wx.getRecorderManager()
+      // 设置录音开始回调
       this.record.onStart((res) => {
         this.onRecordStart(res)
       })
-      this.record.onStop((res) => {
-        this.onRecordStop(res)
-      })
+      // 这里拿到这个frameBuffer用于获取录音的时长和录音文件大小信息,这个回调在onStop回调之前
       this.record.onFrameRecorded((res) => {
         this.frameBuffer = res.frameBuffer
+      })
+      // 设置录音结束回调
+      this.record.onStop((res) => {
+        this.onRecordStop(res)
       })
     },
     /**
      * 录音开始
      */
     onRecordStart() {
+      // 记录录音开始时间
       this.recordStartTime = new Date().getTime()
       this.setData({
         recording: true
@@ -62,13 +71,13 @@ Component({
       })
     },
     /**
-     * 检查录音持续时间
-     * @returns {boolean} 录音持续时间是否够长，避免误触
+     * 检查录音时长，避免误触
+     * @returns {boolean} 录音时长是否合格
      */
     checkRecordDuration() {
-      // 这个duration在音频上传的时候要用到
+      // 这个recordDuration在音频上传的时候要用到
       this.recordDuration = this.recordEndTime - this.recordStartTime
-      if (this.recordDuration < recordDurationTrigger) {
+      if (Number.isNaN(this.recordDurationthis) || this.recordDuration < recordDurationTrigger) {
         wx.showToast({
           icon: 'error',
           title: '录音时间太短'
@@ -82,6 +91,7 @@ Component({
      * @param res
      */
     onRecordStop(res) {
+      // 记录录音结束时间
       this.recordEndTime = new Date().getTime()
       this.setData({
         recording: false
@@ -91,15 +101,15 @@ Component({
           icon: 'none',
           title: '录音结束'
         })
+        this.inputEnd({
+          duration: this.recordDuration,
+          tempFilePath: res.tempFilePath,
+          frameBuffer: this.frameBuffer
+        }, InputType.VOICE)
       }
-      this.inputEnd({
-        recordDuration: this.recordDuration,
-        tempFilePath: res.tempFilePath,
-        frameBuffer: this.frameBuffer
-      }, InputType.VOICE)
     },
     /**
-     * 点击录音图标
+     * 点击录音按钮开始
      */
     onTouchStart() {
       this.record.start({
@@ -111,9 +121,15 @@ Component({
         frameSize: 50
       })
     },
+    /**
+     * 点击录音按钮结束
+     */
     onTouchEnd() {
       this.record.stop()
     },
+    /**
+     * 选择图片
+     */
     choosePicture() {
       wx.chooseMedia({
         count: 1,
@@ -123,19 +139,30 @@ Component({
         }
       })
     },
+    /**
+     * 选择位置
+     */
     choosePosition() {
+      const _this = this
       wx.chooseLocation({
         success(res) {
-          this.inputEnd(res, InputType.POSITION)
+          _this.inputEnd(res, InputType.POSITION)
         }
       })
     },
+    /**
+     * 添加表情
+     * @param e
+     */
     addEmoji(e) {
       const emoji = e.target.dataset.emoji
       this.setData({
         inputValue: this.data.inputValue + emoji
       })
     },
+    /**
+     * 输入框失去焦点
+     */
     onBlur() {
       this.setData({
         inputMarginBottom: 0
@@ -167,7 +194,7 @@ Component({
     onConfirm() {
       if (!this.data.inputValue) {
         wx.showToast({
-          icon: 'none',
+          icon: 'error',
           title: '请输入内容'
         })
       } else {
@@ -175,6 +202,11 @@ Component({
         this.clearInput()
       }
     },
+    /**
+     * 输入结束
+     * @param data
+     * @param type
+     */
     inputEnd(data, type) {
       this.triggerEvent('inputEnd', { data, type })
     },
@@ -184,15 +216,15 @@ Component({
       })
     },
     onInput(e) {
-      const inputValue = e.detail.value.trim()
       this.setData({
-        inputValue
+        inputValue: e.detail.value
       })
     }
   },
   lifetimes: {
     attached: function() {
+      // 页面attached生命周期初始化录音器
       this.initRecord()
     }
-  },
+  }
 })

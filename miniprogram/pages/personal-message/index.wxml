@@ -13,7 +13,6 @@
     <t-cell title="二维码" hover arrow url="/pages/self-qrcode/index">
       <t-icon slot="note" name="qrcode" size="48rpx" />
     </t-cell>
-    <t-cell title="更多" hover arrow bind:click="getMore" />
   </view>
 
   <t-dialog
@@ -26,6 +25,7 @@
   >
     <t-input
       focus="{{ dialogVisible }}"
+      cursor="{{ userInfo.nickName.length }}"
       type="nickname"
       clearable
       value="{{ userInfo.nickName || '' }}"

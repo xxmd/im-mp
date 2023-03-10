@@ -1,21 +1,21 @@
 {
   "pages":[
     "custom-tab-bar/index",
-    "pages/message/index",
+    "pages/session/index",
     "pages/contacts/index",
     "pages/profile/index",
     "pages/personal-message/index",
     "pages/self-qrcode/index",
-    "pages/setting/index",
     "pages/user-card/index",
-    "pages/single-chat/index"
+    "pages/single-chat/index",
+    "pages/position-detail/index"
   ],
   "tabBar": {
     "custom": true,
     "list": [
       {
         "text": "会话",
-        "pagePath": "pages/message/index"
+        "pagePath": "pages/session/index"
       },
       {
         "text": "通讯录",
@@ -45,6 +45,9 @@
     "t-link": "tdesign-miniprogram/link/link",
     "t-avatar": "tdesign-miniprogram/avatar/avatar",
     "t-button": "tdesign-miniprogram/button/button",
-    "t-divider": "tdesign-miniprogram/divider/divider"
+    "t-divider": "tdesign-miniprogram/divider/divider",
+    "t-grid": "tdesign-miniprogram/grid/grid",
+    "t-grid-item": "tdesign-miniprogram/grid-item/grid-item",
+    "icon-text": "./components/IconText/icon-text"
   }
 }

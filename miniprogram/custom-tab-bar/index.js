@@ -10,7 +10,7 @@ Component({
           name: 'message',
           prefix: 'icon'
         },
-        pagePath: "/pages/message/index"
+        pagePath: "/pages/session/index"
       },
       {
         label: "通讯录",

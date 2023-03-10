@@ -2,18 +2,24 @@
   <!-- 自己发的内容 -->
  <view class="self-msg" wx:if="{{ message.from === selfOpenId }}">
    <!-- 文字消息 -->
-   <view class="msg-content" wx:if="{{ message.type === MSG_TYPE.TEXT_MSG }}">{{ message.body.msg }}</view>
+   <view class="msg-content" wx:if="{{ message.type === MSG_TYPE.TEXT_MSG }}">{{ message.data }}</view>
 
    <!-- 图片消息 -->
-   <view class="image-msg" wx:if="{{ message.type === MSG_TYPE.PICTURE_MSG }}" bindtap="previewImage" data-url="{{ message.body.url }}" >
-     <t-image src="{{ message.body.url }}" mode="aspectFill" width="72" height="72" />
+   <view class="image-msg" wx:if="{{ message.type === MSG_TYPE.PICTURE_MSG }}" bindtap="previewImage" data-url="{{ message.data.tempFilePath }}" >
+     <t-image src="{{ message.data.tempFilePath }}" mode="aspectFill" width="72" height="72" />
    </view>
 
    <!-- 语言消息 -->
-   <view class="msg-content"  wx:if="{{ message.type === MSG_TYPE.VOICE_MSG }}" bindtap="playVoice" data-url="{{ message.body.url }}">
-     <text>{{ (message.body.dur - message.body.dur % 1000) / 1000 }}</text>
+   <view class="msg-content"  wx:if="{{ message.type === MSG_TYPE.VOICE_MSG }}" bindtap="playVoice" data-url="{{ message.data.tempFilePath }}">
+     <text>{{ (message.data.duration - message.data.duration % 1000) / 1000 }}</text>
      <t-icon name="signal-left" prefix="icon" />
    </view>
+
+   <!-- 位置消息 -->
+   <view  wx:if="{{ message.type === MSG_TYPE.POSITION_MSG }}">
+     <position position="{{ message.data }}"></position>
+   </view>
+
    <t-avatar size="small"  shape="round" image="{{ selfInfo.avatarUrl }}" />
  </view>
   <!-- 别人发的内容 -->
@@ -33,6 +39,5 @@
       <text>{{ message.body.dur }}</text>
     </view>
   </view>
-
 
 </view>

@@ -41,8 +41,15 @@
           "scene": null
         },
         {
-          "name": "message",
-          "pathName": "pages/message/index",
+          "name": "session",
+          "pathName": "pages/session/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "setting",
+          "pathName": "pages/setting/index",
           "query": "",
           "launchMode": "default",
           "scene": null
