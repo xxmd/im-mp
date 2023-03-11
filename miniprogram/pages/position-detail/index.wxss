@@ -17,12 +17,22 @@
     align-items: center;
 }
 
-.title {
-    flex: 1;
-    font-size: 18px;
-    font-weight: bolder;
+
+.label {
+    flex: 3;
+    word-break: break-all;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
 }
 
+.address {
+    color: var(--gray-color);
+    font-size: 13px;
+}
 .grid {
     gap: 30px;
 }
@@ -33,7 +43,7 @@ map {
 }
 
 .operators {
-    flex: 1;
+    flex: 2;
     display: flex;
     gap: 10px;
     justify-content: center;

@@ -8,7 +8,14 @@ Page({
   toChatPage(e) {
     const item = e.target.dataset.item
     wx.navigateTo({
-      url: `/pages/single-chat/index?friendOpenId=${ item.friendOpenId }&friendInfo=${ JSON.stringify(item.friendInfo) }`
+      url: '/pages/single-chat/index',
+      success(res) {
+        const params = {
+          friendOpenId: item.friendOpenId,
+          friendInfo: item.friendInfo
+        }
+        res.eventChannel.emit('sendParams', params)
+      }
     })
   },
   getLastMsgContent(friendOpenId) {

@@ -1,7 +1,4 @@
-import PubSub from "./utils/pubsub";
-
 App({
-  pubSub: new PubSub(),
   globalData: {},
   init() {
     this.initSafeArea()

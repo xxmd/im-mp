@@ -13,7 +13,8 @@
   </t-cell>
 
   <view class="cell-group">
-    <t-cell title="切换账号" arrow bind:click="switchAccount"/>
+    <t-cell leftIcon="add-circle" title="新增账号" arrow url="/pages/account-add/index"/>
+    <t-cell leftIcon="login" title="切换账号" arrow bind:click="switchAccount"/>
   </view>
 
   <t-dialog

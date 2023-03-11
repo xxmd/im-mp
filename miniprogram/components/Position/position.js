@@ -30,8 +30,15 @@ Component({
    */
   methods: {
     toDetailPage() {
+      const _this = this
       wx.navigateTo({
-        url: `/pages/position-detail/index?position=${ JSON.stringify(this.data.position) }`
+        url: '/pages/position-detail/index',
+        success(res) {
+          const params = {
+            position: _this.properties.position
+          }
+          res.eventChannel.emit('sendParams', params)
+        }
       })
     }
   }

@@ -19,7 +19,7 @@ Page({
     this.setData({
       userInfo: newUserInfo
     })
-    updateUserInfo({ newUserInfo }, () => {
+    updateUserInfo(newUserInfo , () => {
       wx.setStorageSync('userInfo', newUserInfo)
     })
   },

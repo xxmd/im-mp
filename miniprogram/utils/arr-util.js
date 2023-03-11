@@ -1,3 +1,11 @@
+// 数组相关函数
+
+/**
+ * 数组分组
+ * @param arr 待分组的数组
+ * @param field 分组字段
+ * @returns {*[]}
+ */
 export function groupBy(arr, field) {
   const groups = {}
   for (let item of arr) {

@@ -1,0 +1,17 @@
+.t-grid-item {
+    width: 100% !important;
+}
+
+.t-input__label {
+    width: 40px !important;
+}
+
+.t-cell__title {
+    flex: none !important;
+    width: 40px !important;
+    margin-right: 16px;
+}
+
+.t-cell__note {
+    justify-content: flex-start !important;
+}

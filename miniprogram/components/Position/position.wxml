@@ -1,4 +1,7 @@
 <view class="position" bindtap="toDetailPage">
-  <view class="position-title">{{ position.address }}</view>
+  <view class="label">
+    <text class="name">{{ position.name }}</text>
+    <text class="address">{{ position.address }}</text>
+  </view>
   <map longitude="{{ position.longitude }}" latitude="{{ position.latitude }}" markers="{{ markers }}"></map>
 </view>

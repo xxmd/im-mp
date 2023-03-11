@@ -3,9 +3,6 @@
   "dependencies": {
     "crypto-js": "^4.1.1",
     "miniprogram-computed": "^4.4.0",
-    "mobx-miniprogram": "^4.13.2",
-    "mobx-miniprogram-bindings": "^2.1.5",
-    "pinyin-pro": "^3.13.1",
     "tdesign-miniprogram": "^1.0.1",
     "weapp-qrcode": "^1.0.0"
   }

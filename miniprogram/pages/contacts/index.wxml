@@ -1,31 +1,23 @@
 <view>
-  <t-cell-group>
+  <view>
     <t-cell title="新增好友" leftIcon="user-add" bind:click="addFriend" />
-  </t-cell-group>
+  </view>
 
-  <scroll-view 	scroll-y 	show-scrollbar="{{ false }}">
-    <t-indexes index-list="{{ indexList }}">
-      <block wx:for="{{ sortedList }}" wx:key="index">
-        <t-indexes-anchor index="{{ item.index }}" />
-        <t-cell-group>
-          <t-cell
-                  wx:for="{{item.group}}"
-                  wx:key="openId"
-                  wx:for-item="userInfo"
-                  title="{{ userInfo.nickName }}"
-                  align="middle"
-                  bordered="{{false}}"
-                  data-open-id="{{ userInfo.openId }}"
-                  bind:click="showUserCard"
-          >
-            <view class="avatar" slot="left-icon">
-              <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />
-            </view>
-          </t-cell>
-        </t-cell-group>
-      </block>
-    </t-indexes>
-  </scroll-view>
+  <view class="cell-group">
+    <t-cell
+      wx:for="{{ friendList }}"
+      wx:key="openId"
+      wx:for-item="userInfo"
+      title="{{ userInfo.nickName }}"
+      align="middle"
+      data-open-id="{{ userInfo.openId }}"
+      bind:click="showUserCard"
+    >
+      <view class="avatar" slot="left-icon">
+        <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />
+      </view>
+    </t-cell>
+  </view>
 
   <!-- 新增好友dialog -->
   <t-dialog

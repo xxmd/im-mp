@@ -10,11 +10,7 @@
     </view>
   </t-cell>
 
-  <view class="cell-group">
-    <t-cell title="备注" arrow/>
-  </view>
-
-  <view class="cell-group">
+  <view wx:if="{{ friendOpenId !== selfOpenId }}" class="cell-group">
       <t-button wx:if="{{ !isFriend }}" size="large" block t-class="block-btn" icon="user-add" bind:tap="addFriend" >加为好友</t-button>
       <t-button wx:else size="large" block t-class="block-btn" icon="chat" bind:tap="sendMsg" >发消息</t-button>
   </view>

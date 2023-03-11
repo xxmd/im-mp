@@ -1,7 +1,6 @@
 import {MSG_TYPE, InputType} from "../../utils/types";
-const computedBehavior = require('miniprogram-computed').behavior;
-import { createStoreBindings } from "mobx-miniprogram-bindings";
-import messageStore from "../../store/message";
+import { sendMsg } from "../../utils/message";
+const computedBehavior = require("miniprogram-computed").behavior;
 
 Page({
   behaviors: [computedBehavior],
@@ -39,9 +38,10 @@ Page({
         msgType = MSG_TYPE.POSITION_MSG
         break
     }
-    this.sendMsg(this.data.friendOpenId, msgType, data)
-    this.setData({
-      chatRecord: this.data.friendMsgMap[this.data.friendOpenId]
+    sendMsg(this.data.friendOpenId, msgType, data, (chatRecord) => {
+      this.setData({
+        chatRecord
+      })
     })
   },
   setNavBarTitle() {
@@ -49,19 +49,13 @@ Page({
       title: this.data.friendInfo.nickName
     })
   },
-  bindMsgStore() {
-    this.storeBindings = createStoreBindings(this, {
-      store: messageStore,
-      fields: ['friendMsgMap'],
-      actions: ['sendMsg']
-    })
-  },
   onLoad(options) {
-    this.setData({
-      friendOpenId: options.friendOpenId,
-      friendInfo: JSON.parse(options.friendInfo)
+    this.getOpenerEventChannel().once('sendParams',(params)=>{
+      this.setData({
+        friendOpenId: params.friendOpenId,
+        friendInfo: params.friendInfo
+      })
     })
     this.setNavBarTitle()
-    this.bindMsgStore()
   }
 })

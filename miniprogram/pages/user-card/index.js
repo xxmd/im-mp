@@ -5,7 +5,8 @@ Page({
   data: {
     friendOpenId: '',
     friendInfo: {},
-    isFriend: false
+    isFriend: false,
+    selfOpenId: ''
   },
   sendMsg() {
     const friendOpenId = this.data.friendOpenId
@@ -18,8 +19,16 @@ Page({
       })
       wx.setStorageSync('sessionList', sessionList)
     }
+    const _this = this
     wx.navigateTo({
-      url: `/pages/single-chat/index?friendOpenId=${ this.data.friendOpenId }&friendInfo=${ JSON.stringify(this.data.friendInfo) }`
+      url: '/pages/single-chat/index',
+      success(res) {
+        const params = {
+          friendOpenId: _this.data.friendOpenId,
+          friendInfo: _this.data.friendInfo
+        }
+        res.eventChannel.emit('sendParams', params)
+      }
     })
   },
   addFriend() {
@@ -31,8 +40,16 @@ Page({
         offset: ['20rpx', '32rpx'],
         duration: 3000,
         content: '添加好友成功'
-      });
+      })
+      this.onAddSuccess()
     })
+  },
+  onAddSuccess() {
+    const pages = getCurrentPages();
+    const beforePage = pages[pages.length - 2];
+    if (typeof beforePage.getFriendList === 'function') {
+      beforePage.getFriendList()
+    }
   },
   assertRelation() {
     isFriend({
@@ -56,7 +73,8 @@ Page({
   },
   onLoad(options) {
     this.setData({
-      friendOpenId: options.friendOpenId
+      friendOpenId: options.friendOpenId,
+      selfOpenId: wx.getStorageSync('openId')
     })
     this.getFriendInfo()
     this.assertRelation()

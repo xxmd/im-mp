@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "新增账号",
+  "usingComponents": {
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-switch": "tdesign-miniprogram/switch/switch"
+  }
+}

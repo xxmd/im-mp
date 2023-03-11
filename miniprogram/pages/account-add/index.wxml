@@ -1,0 +1,29 @@
+<view>
+  <t-input label="ID" placeholder="请输入OpenId" value="{{ account.openId }}" bind:change="onChange" data-field="openId"></t-input>
+  <t-input label="昵称" placeholder="请输入昵称" value="{{ account.nickName }}" bind:change="onChange" data-field="nickName"></t-input>
+
+  <t-cell title="头像">
+    <t-upload
+      slot="note"
+      mediaType="{{['image']}}"
+      max="{{1}}"
+      files="{{fileList}}"
+      bind:add="handleAdd"
+      bind:remove="handleRemove"
+    >
+    </t-upload>
+  </t-cell>
+  <view class="block-btn-box">
+    <t-button class="block-btn" theme="primary" size="large" block bindtap="confirm">确认</t-button>
+  </view>
+
+  <t-dialog
+          visible="{{dialogVisible}}"
+          title="提示"
+          content="账号创建成功，是否立即登录？"
+          confirm-btn="确认"
+          cancel-btn="取消"
+          bind:confirm="login"
+          bind:cancel="closeDialog"
+  />
+</view>

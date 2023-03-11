@@ -1,5 +1,4 @@
-import {initUserInfo, login} from "../../utils/api";
-const app = getApp()
+import { login } from "../../utils/api";
 
 Page({
   data: {
@@ -18,8 +17,6 @@ Page({
   },
   onConfirm() {
     this.closeDialog()
-    console.log(this.data.newOpenId)
-    console.log(this.data.openId)
     if (this.data.newOpenId == this.data.openId) {
       wx.showToast({
         icon: 'error',
@@ -31,10 +28,7 @@ Page({
       wx.clearStorageSync()
       wx.setStorageSync('openId', this.data.newOpenId)
       wx.reLaunch({
-        url: '/pages/profile/index',
-        success() {
-          login(app.pubSub.publish('loginSuccess'))
-        }
+        url: '/pages/profile/index'
       })
     }
   },
@@ -54,6 +48,7 @@ Page({
     this.initOpenId()
   },
   initOpenId() {
+    // openId有两种来源：从云空间请求获取或从storage中取得
     if (!wx.getStorageSync('openId')) {
       wx.cloud.init({
         env: 'im-3gelvp9c7681a2f7',
@@ -62,20 +57,18 @@ Page({
         name: 'getOpenId',
         success: res => {
           this.setOpenId(res.result.openid)
-          this.login()
+          this.setUserInfo()
         },
         fail: error => console.log(error)
       })
     } else {
-      this.setData({
-        openId: wx.getStorageSync('openId')
-      })
-      this.login()
+      this.setUserInfo()
     }
   },
-  login() {
+  setUserInfo() {
     login((userInfo) => {
       this.setData({
+        openId: wx.getStorageSync('openId'),
         userInfo
       })
     })

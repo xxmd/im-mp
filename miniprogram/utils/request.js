@@ -1,6 +1,11 @@
 const { SHA1 } = require("crypto-js");
 import config from "../config";
 
+/**
+ * 生成随机字符串
+ * @param x
+ * @returns {string}
+ */
 function randString(x) {
   let s = "";
   while (s.length < x && x > 0) {
@@ -12,6 +17,10 @@ function randString(x) {
   return s;
 }
 
+/**
+ * 生成IM所需的部分头信息
+ * @returns {{Nonce: string, CheckSum, AppKey: string, CurTime: string}}
+ */
 function geneHeadParams() {
   const [Nonce, CurTime] = [randString(20), new Date().getTime().toString().slice(0, 10)]
   return {
@@ -22,6 +31,10 @@ function geneHeadParams() {
   }
 }
 
+/**
+ * 封装微信请求
+ * @param options
+ */
 export function request(options) {
   wx.showLoading({
     title: options.loadingTips || '网络请求中...'
@@ -34,7 +47,7 @@ export function request(options) {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     data: {
-      accid: wx.getStorageSync('openId'),
+      accid: options.data.openId || wx.getStorageSync('openId'),
       ...options.data
     },
     success(res) {

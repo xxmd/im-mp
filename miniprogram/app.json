@@ -8,7 +8,8 @@
     "pages/self-qrcode/index",
     "pages/user-card/index",
     "pages/single-chat/index",
-    "pages/position-detail/index"
+    "pages/position-detail/index",
+    "pages/account-add/index"
   ],
   "tabBar": {
     "custom": true,

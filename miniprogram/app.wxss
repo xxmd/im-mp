@@ -19,6 +19,11 @@ page {
     margin-top: var(--card-margin);
 }
 
+.block-btn-box {
+    background-color: #fff;
+    padding: 10px;
+}
+
 .block-btn {
     border-radius: 0 !important;
     margin: 0 !important;
