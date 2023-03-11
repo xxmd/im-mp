@@ -7,6 +7,17 @@ Page({
     dialogVisible: false,
     newOpenId: ''
   },
+  cleanStorage() {
+    wx.clearStorageSync()
+    wx.reLaunch({
+      url: '/pages/profile/index',
+      success: (res) => {
+        wx.showToast({
+          title: '清除缓存成功'
+        })
+      }
+    })
+  },
   switchAccount() {
     this.setData({
       dialogVisible: true

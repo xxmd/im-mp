@@ -1,8 +1,8 @@
 @import "assets/css/iconfont.wxss";
 
 page {
-    min-height: 100vh;
     background-color: #ededed;
+    --tab-bar-height: 100px;
     --brand-color: #95ec69;
     --card-margin: 1rem;
     --gray-color: #b3b3b3;
@@ -32,5 +32,9 @@ page {
 
 .t-tab-bar-item__text--small {
     margin-top: 10px;
-    font-size: 13px !important;
+    font-size: 12px !important;
+}
+
+.t-tab-bar {
+    padding-top: 5px;
 }

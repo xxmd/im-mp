@@ -11,14 +11,18 @@ Component({
     }
   },
   data: {
-    selfOpenId: wx.getStorageSync('openId'),
-    selfInfo: wx.getStorageSync('userInfo'),
+    selfOpenId: '',
+    selfInfo: '',
     MSG_TYPE: MSG_TYPE
   },
   lifetimes: {
     attached: function() {
       // 页面attached生命周期初始化录音器
       this.initAudioContext()
+      this.setData({
+        selfOpenId: wx.getStorageSync('openId'),
+        selfInfo: wx.getStorageSync('userInfo')
+      })
     }
   },
   methods: {

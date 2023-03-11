@@ -17,6 +17,10 @@
     <t-cell leftIcon="login" title="切换账号" arrow bind:click="switchAccount"/>
   </view>
 
+  <view class="cell-group">
+    <t-cell leftIcon="clear" title="清除缓存" arrow bind:click="cleanStorage" />
+  </view>
+
   <t-dialog
           visible="{{ dialogVisible }}"
           title="切换账号"

@@ -23,7 +23,7 @@ Page({
     ]
   },
   onShow() {
-    this.data.account.openId = randomStr(11)
+    this.data.account.openId = randomStr(11).toLowerCase()
     this.setData({
       account: this.data.account
     })

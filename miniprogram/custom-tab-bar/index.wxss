@@ -3,4 +3,5 @@
     --td-tab-bar-bg-color: #f9f9f9;
     --td-tab-bar-color: #000000;
     --td-tab-bar-active-color: #03c160;
+    height: var(--tab-bar-height);
 }

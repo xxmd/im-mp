@@ -1,5 +1,6 @@
 import drawQrcode from '../../vendor/weapp.qrcode.esm.js'
 import Message from 'tdesign-miniprogram/message/index';
+import {addFriend} from "../../utils/common";
 
 Page({
   data: {
@@ -12,7 +13,7 @@ Page({
     wx.scanCode({
       success (res) {
         // 执行添加好友功能
-        console.log(res)
+        addFriend(res.result)
       }
     })
   },

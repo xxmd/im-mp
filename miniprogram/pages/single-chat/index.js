@@ -49,6 +49,13 @@ Page({
       title: this.data.friendInfo.nickName
     })
   },
+  onReady() {
+    this.setNavBarTitle()
+    const friendMsgMap = wx.getStorageSync('friendMsgMap')
+    this.setData({
+      chatRecord: friendMsgMap[this.data.friendOpenId] || []
+    })
+  },
   onLoad(options) {
     this.getOpenerEventChannel().once('sendParams',(params)=>{
       this.setData({
@@ -56,6 +63,5 @@ Page({
         friendInfo: params.friendInfo
       })
     })
-    this.setNavBarTitle()
   }
 })

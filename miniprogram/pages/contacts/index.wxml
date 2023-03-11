@@ -3,7 +3,7 @@
     <t-cell title="新增好友" leftIcon="user-add" bind:click="addFriend" />
   </view>
 
-  <view class="cell-group">
+  <scroll-view scroll-y 	show-scrollbar="{{ false }}" class="cell-group">
     <t-cell
       wx:for="{{ friendList }}"
       wx:key="openId"
@@ -17,7 +17,7 @@
         <t-avatar shape="round" image="{{ userInfo.avatarUrl }}" />
       </view>
     </t-cell>
-  </view>
+  </scroll-view>
 
   <!-- 新增好友dialog -->
   <t-dialog
