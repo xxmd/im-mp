@@ -28,12 +28,22 @@ im-mp/
 ```
 
 ## 截图
-<center> 
-<img src="https://s2.xptou.com/2023/03/12/640dad6912fd7.PNG" width="100"/>
-<img src="https://s2.xptou.com/2023/03/12/640dada522da7.PNG" width="100"/>
-<img src="https://s2.xptou.com/2023/03/12/640dadde6bd5e.PNG" width="100"/>
-<img src="https://s2.xptou.com/2023/03/12/640dae0b9b845.PNG" width="100"/>
-</center>
+<table>
+    <tr>
+        <td>
+            <img src="https://s2.xptou.com/2023/03/12/640dad6912fd7.PNG"/>
+        </td>
+        <td>
+            <img src="https://s2.xptou.com/2023/03/12/640dada522da7.PNG"/>
+        </td>
+        <td>
+            <img src="https://s2.xptou.com/2023/03/12/640dadde6bd5e.PNG"/>
+        </td>
+        <td>
+            <img src="https://s2.xptou.com/2023/03/12/640dae0b9b845.PNG"/>
+        </td>
+    </tr>
+</table>
 
 ## 扫码体验
 <img style="width: 200px; object-fit: cover;" src="https://s2.xptou.com/2023/03/12/640db2a959640.png" />
