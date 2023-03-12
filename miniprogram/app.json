@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/profile/index",
+    "pages/session/index",
     "custom-tab-bar/index",
     "pages/contacts/index",
     "pages/personal-message/index",
