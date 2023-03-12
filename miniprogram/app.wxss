@@ -1,6 +1,7 @@
 @import "assets/css/iconfont.wxss";
 
 page {
+    min-height: 100vh;
     background-color: #ededed;
     --tab-bar-height: 100px;
     --brand-color: #95ec69;
@@ -9,6 +10,10 @@ page {
     --back-color: #ececec;
     --success-colr: #07c160;
     --danger-colr: #dc3545;
+}
+
+.with-tab-bar-view {
+  padding-bottom: var(--tab-bar-height);
 }
 
 .container {

@@ -1,14 +1,16 @@
-<t-cell
-    wx:for="{{ sessionList }}"
-    wx:key="friendOpenId"
-    title="{{ item.friendInfo.nickName }}"
-    align="top"
-    bordered="{{false}}"
-    description="{{ item.desc }}"
-    data-item="{{ item }}"
-    bind:click="toChatPage"
->
-  <view class="avatar" slot="left-icon">
-    <t-avatar shape="round" image="{{ item.friendInfo.avatarUrl }}" />
-  </view>
-</t-cell>
+<view class="with-tab-bar-view">
+  <t-cell
+      wx:for="{{ sessionList }}"
+      wx:key="friendOpenId"
+      title="{{ item.friendInfo.nickName }}"
+      align="top"
+      bordered="{{false}}"
+      description="{{ item.desc }}"
+      data-item="{{ item }}"
+      bind:click="toChatPage"
+  >
+    <view class="avatar" slot="left-icon">
+      <t-avatar shape="round" image="{{ item.friendInfo.avatarUrl }}" />
+    </view>
+  </t-cell>
+</view>

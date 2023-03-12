@@ -1,4 +1,4 @@
-<view>
+<view class="with-tab-bar-view">
   <view>
     <t-cell title="新增好友" leftIcon="user-add" bind:click="addFriend" />
   </view>
