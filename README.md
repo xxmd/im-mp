@@ -1,9 +1,9 @@
 # IMMPP
 
-基于微信小程序的 IM 即时通讯 APP， 目前只支持单聊。
+运行在微信小程序的 `IM` 即时通讯 APP， 目前只支持 `单聊`。
 
-- 后端使用 [网易云信](https://doc.yunxin.163.com/TM5MzM5Njk/docs/jk3MzY2MTI?platform=server)提供的 IM 单聊接口。
-- 单聊界面可发送文本，语音，图片和位置等信息。
+- 后端使用 [网易云信](https://doc.yunxin.163.com/TM5MzM5Njk/docs/jk3MzY2MTI?platform=server) 提供的单聊接口。
+- 单聊界面可发送 `文本` ，`语音` ，`图片` 和 `位置` 等信息。
 
 ## 项目目录结构
 
@@ -13,8 +13,8 @@ im-mp/
 └── miniprogram/        // 小程序源码
     ├── assets/         // 静态资源
     ├── components/     // 单聊界面用到的组件
-    │   ├── FootInput   // 信息输入(支持文本，表情，语音，图片等输入) 组件
-    │   ├── IconText    // 图标文字展示组件    
+    │   ├── FootInput   // 信息输入(支持文本，表情，语音，图片和位置信息等输入) 组件
+    │   ├── IconText    // 图标文字展示组件
     │   ├── Message     // 聊天消息展示组合  
     │   └── Position    // 位置信息卡片组件               
     ├── custom-tab-bar  // 自定义tab-bar
