@@ -28,24 +28,12 @@ im-mp/
 ```
 
 ## 截图
-<div style="display: flex; justify-content: space-around;">
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
-        <img src="https://s2.xptou.com/2023/03/12/640dad6912fd7.PNG" width="60%" />
-        <label style="color: #999">个人中心</label>
-    </div>
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
-        <img src="https://s2.xptou.com/2023/03/12/640dada522da7.PNG" width="60%" />
-        <label style="color: #999">通讯录</label>
-    </div>
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
-        <img src="https://s2.xptou.com/2023/03/12/640dadde6bd5e.PNG" width="60%" />
-        <label style="color: #999">会话界面</label>
-    </div>
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;">
-        <img src="https://s2.xptou.com/2023/03/12/640dae0b9b845.PNG" width="60%" />
-        <label style="color: #999">单聊界面</label>
-    </div>
-</div>
+<center> 
+<img src="https://s2.xptou.com/2023/03/12/640dad6912fd7.PNG" width="100"/>
+<img src="https://s2.xptou.com/2023/03/12/640dada522da7.PNG" width="100"/>
+<img src="https://s2.xptou.com/2023/03/12/640dadde6bd5e.PNG" width="100"/>
+<img src="https://s2.xptou.com/2023/03/12/640dae0b9b845.PNG" width="100"/>
+</center>
 
 ## 扫码体验
 <img style="width: 200px; object-fit: cover;" src="https://s2.xptou.com/2023/03/12/640db2a959640.png" />
