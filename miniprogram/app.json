@@ -1,9 +1,8 @@
 {
   "pages":[
-    "custom-tab-bar/index",
-    "pages/session/index",
-    "pages/contacts/index",
     "pages/profile/index",
+    "custom-tab-bar/index",
+    "pages/contacts/index",
     "pages/personal-message/index",
     "pages/self-qrcode/index",
     "pages/user-card/index",
